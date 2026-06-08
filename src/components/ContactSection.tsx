@@ -107,7 +107,7 @@ export default function ContactSection() {
 
           {/* LinkedIn mock channel */}
           <a
-            href="https://linkedin.com/in/ayush-uttam"
+            href="https://www.linkedin.com/in/ayush-uttam-68396b302/"
             target="_blank"
             rel="noopener noreferrer"
             className="flex items-center gap-4 p-4 rounded-xl bg-white/70 border border-gray-200 hover:border-black transition-all duration-300 group"
@@ -118,7 +118,7 @@ export default function ContactSection() {
             <div>
               <p className="text-[10px] font-mono text-gray-400 uppercase tracking-widest">PROFESSIONAL NETWORK</p>
               <p className="text-sm font-sans font-medium text-gray-800 group-hover:text-black transition-colors">
-                linkedin.com/in/ayush-uttam
+                linkedin.com/in/ayush-uttam-68396b302
               </p>
             </div>
           </a>

@@ -298,7 +298,7 @@ export default function App() {
               <Mail className="w-4.5 h-4.5" />
             </a>
             <a
-              href="https://linkedin.com/in/ayush-uttam"
+              href="https://www.linkedin.com/in/ayush-uttam-68396b302/"
               target="_blank"
               rel="noopener noreferrer"
               className="p-2 border border-gray-200 bg-white hover:border-black text-gray-500 hover:text-black rounded-lg transition-all"
