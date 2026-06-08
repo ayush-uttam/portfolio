@@ -1,0 +1,6 @@
+{
+  "name": "Ayush Uttam Portfolio",
+  "description": "A minimal, interactive developer portfolio featuring responsive 3D elements and dynamic GitHub repository integration.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
