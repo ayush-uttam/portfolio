@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { Send, CheckCircle, Github, Mail, Linkedin, ArrowRight, MessageSquare } from "lucide-react";
+import { Send, CheckCircle, Github, Linkedin, ArrowRight, MessageSquare } from "lucide-react";
 
 export default function ContactSection() {
   const [formData, setFormData] = useState({
@@ -70,22 +70,6 @@ export default function ContactSection() {
           <h4 className="font-mono text-xs text-black uppercase tracking-[0.2em] font-bold">
             DIRECT DIRECTORY
           </h4>
-
-          {/* Mail channel */}
-          <a
-            href="mailto:ayushuttamkav@gmail.com"
-            className="flex items-center gap-4 p-4 rounded-xl bg-white/70 border border-gray-200 hover:border-black transition-all duration-300 group"
-          >
-            <div className="p-2.5 rounded-lg bg-gray-100 text-black group-hover:bg-black group-hover:text-white transition-all">
-              <Mail className="w-5 h-5" />
-            </div>
-            <div>
-              <p className="text-[10px] font-mono text-gray-400 uppercase tracking-widest">EMAIL SYSTEM</p>
-              <p className="text-sm font-sans font-medium text-gray-800 group-hover:text-black transition-colors">
-                ayushuttamkav@gmail.com
-              </p>
-            </div>
-          </a>
 
           {/* GitHub channel */}
           <a

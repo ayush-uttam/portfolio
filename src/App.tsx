@@ -6,7 +6,7 @@ import ProjectList from "./components/ProjectList";
 import AboutSection from "./components/AboutSection";
 import ContactSection from "./components/ContactSection";
 import StatsDashboard from "./components/StatsDashboard";
-import { Github, Mail, Linkedin, ChevronDown, ArrowUpRight, Terminal } from "lucide-react";
+import { Github, Linkedin, ChevronDown, ArrowUpRight, Terminal } from "lucide-react";
 
 export default function App() {
   const [scrollProgress, setScrollProgress] = useState(0);
@@ -289,13 +289,6 @@ export default function App() {
               title="GitHub"
             >
               <Github className="w-4.5 h-4.5" />
-            </a>
-            <a
-              href="mailto:ayushuttamkav@gmail.com"
-              className="p-2 border border-gray-200 bg-white hover:border-black text-gray-500 hover:text-black rounded-lg transition-all"
-              title="Gmail"
-            >
-              <Mail className="w-4.5 h-4.5" />
             </a>
             <a
               href="https://www.linkedin.com/in/ayush-uttam-68396b302/"
