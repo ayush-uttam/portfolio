@@ -97,30 +97,49 @@ const FEATURED_PROJECTS: CustomProject[] = [
 
 function SentinelAIMockup() {
   return (
-    <div className="w-full h-full flex flex-col justify-between font-mono text-[9px] text-neutral-300">
-      <div className="bg-neutral-950 p-2 rounded border border-neutral-800 text-[8px] leading-tight space-y-1 overflow-hidden h-[120px]">
-        <div className="text-rose-400 font-bold border-b border-neutral-850 pb-1 flex justify-between">
-          <span>FORENSIC REPORT // COMMIT CACHE</span>
-          <span className="animate-pulse">● REPORT RED</span>
-        </div>
-        <div className="text-neutral-500 font-light">FILE: index.ts (Lines 14-22)</div>
-        <div className="bg-rose-950/20 text-rose-300 p-1.5 rounded font-light border border-rose-900/30">
-          <span className="text-neutral-500">14 |</span> function bubbleSort(arr) &#123;
-          <br />
-          <span className="text-rose-400 font-bold">15 |</span> <span className="underline">const len = arr.length;</span> // AI pattern detected
-        </div>
-        <div className="text-neutral-400 text-[7.5px] italic leading-snug">Reason: Over-explained comments & structural entropy signature matches model output (Gemini 1.5).</div>
+    <div className="w-full h-full flex flex-col items-center justify-center text-center overflow-hidden"
+      style={{ background: "linear-gradient(180deg, #0a0a0f 0%, #0d1117 50%, #1a0a2e 100%)" }}
+    >
+      {/* Shield Icon */}
+      <div className="w-6 h-6 rounded-full bg-cyan-500/15 border border-cyan-500/30 flex items-center justify-center mb-1.5">
+        <svg className="w-3 h-3 text-cyan-400" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+          <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" />
+          <path d="M9 12l2 2 4-4" />
+        </svg>
       </div>
-      
-      <div className="flex justify-between items-center gap-2 border-t border-neutral-850 pt-2 text-[8px]">
-        <div className="flex flex-col">
-          <span className="text-neutral-500">INTEGRITY SCORE</span>
-          <span className="text-rose-500 font-bold text-xs">15% // RISKY</span>
-        </div>
-        <div className="flex gap-1">
-          <span className="px-1.5 py-0.5 bg-neutral-850 text-neutral-400 rounded">Commit scan</span>
-          <span className="px-1.5 py-0.5 bg-rose-500/25 text-rose-400 rounded border border-rose-500/35">AI Flagged</span>
-        </div>
+
+      {/* Title */}
+      <div className="text-[8px] font-bold text-white tracking-wide mb-0.5">
+        <span className="font-black">SENTINEL AI</span>{" "}
+        <span className="font-light italic text-neutral-300">Academic</span>
+      </div>
+      <div className="text-[5.5px] text-neutral-500 leading-tight max-w-[140px] mb-2">
+        Verify programming academic integrity. Analyze student GitHub repositories using LLM forensic modeling.
+      </div>
+
+      {/* Feature Bullets */}
+      <div className="w-full max-w-[150px] space-y-1 text-left mb-2">
+        {[
+          { icon: "👤", title: "Educator Workspace", desc: "Upload class registers, persist scans" },
+          { icon: "🔑", title: "Gemini Control", desc: "Supply your own API keys" },
+          { icon: "🔒", title: "Zero-Trust Security", desc: "Isolated Firestore boundaries" },
+        ].map((f) => (
+          <div key={f.title} className="flex items-start gap-1">
+            <span className="text-[6px] mt-0.5">{f.icon}</span>
+            <div>
+              <div className="text-[6px] font-bold text-white">{f.title}</div>
+              <div className="text-[5px] text-neutral-500 leading-tight">{f.desc}</div>
+            </div>
+          </div>
+        ))}
+      </div>
+
+      {/* Sign In Button */}
+      <div className="w-[120px] py-1 rounded-full bg-cyan-500 text-[6px] font-bold text-white tracking-wide mb-1">
+        →  Sign in with Google
+      </div>
+      <div className="text-[5px] text-neutral-600 italic">
+        Made by <span className="text-neutral-400">Ayush</span> & <span className="text-neutral-400">Anuj</span>
       </div>
     </div>
   );
