@@ -3,20 +3,28 @@ import { Cpu, Terminal, Sparkles, Layers, Award } from "lucide-react";
 
 const SKILLS: SkillCategory[] = [
   {
-    title: "Core Technologies",
-    items: ["TypeScript", "JavaScript", "Rust", "Go", "Python", "C++"]
+    title: "Languages",
+    items: ["C/C++", "Java", "Arduino", "Python"]
   },
   {
-    title: "Frameworks & Runtimes",
-    items: ["React (Vite)", "Node.js", "Express", "Next.js", "Rocket (Rust)", "Gin (Go)"]
+    title: "Frameworks & Frontend",
+    items: ["React", "HTML", "CSS", "Javascript", "Typescript", "Next.js"]
+  },
+  {
+    title: "Backend",
+    items: ["Node.js", "Express"]
   },
   {
     title: "Databases & Storage",
-    items: ["PostgreSQL", "MongoDB", "Redis", "Firebase (Firestore)", "SQLite", "Prisma"]
+    items: ["MongoDB", "Firebase (Firestore)", "MySQL"]
   },
   {
-    title: "Creative Tools & WebGL",
-    items: ["Three.js", "Shaders (GLSL)", "WebGPU", "D3.js", "Framer Motion", "Tailwind CSS"]
+    title: "Tools",
+    items: ["Postman", "Git/Github", "VSCode", "IntelliJ"]
+  },
+  {
+    title: "Learning",
+    items: ["AWS", "Docker", "Kubernetes", "Springboot"]
   }
 ];
 
@@ -63,7 +71,7 @@ export default function AboutSection() {
           <h3 className="font-serif text-3xl md:text-5xl font-semibold text-black dark:text-white tracking-tight leading-none mb-6">
             Engineering digital experiences with <span className="italic block sm:inline text-black dark:text-white font-normal underline underline-offset-8">precision</span>.
           </h3>
-          <ul className="space-y-3 text-base text-gray-600 dark:text-gray-350 font-sans leading-relaxed font-light list-disc list-outside pl-5">
+          <ul className="space-y-3 text-base text-gray-800 dark:text-gray-100 font-sans leading-relaxed font-light list-disc list-outside pl-5">
             <li>
               <strong>Academic Foundation:</strong> Information Technology undergraduate at G.L. Bajaj Institute of Technology and Management with a strong foundation in Data Structures, Algorithms, Web Development, and AI-powered applications.
             </li>
@@ -149,7 +157,7 @@ export default function AboutSection() {
                 <p className="font-mono text-xs text-gray-500 dark:text-gray-400 mt-0.5 font-bold uppercase tracking-widest">
                   {item.company}
                 </p>
-                <p className="font-sans text-sm text-gray-605 dark:text-gray-350 leading-relaxed mt-3 whitespace-pre-line">
+                <p className="font-sans text-sm text-gray-750 dark:text-gray-200 leading-relaxed mt-3 whitespace-pre-line">
                   {item.description}
                 </p>
               </div>

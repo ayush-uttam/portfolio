@@ -61,7 +61,7 @@ export default function ContactSection() {
             Get in <span className="italic text-black dark:text-white font-normal underline underline-offset-8">touch</span>.
           </h3>
           <p className="font-sans text-base text-gray-655 dark:text-gray-300 leading-relaxed">
-            I am always open to architectural contracts, high-performance web engineering consultations, and open-source collaborations. Drop me a note and let's craft something robust together.
+            I'm always excited to connect with fellow developers, recruiters, and innovators. Whether you have an opportunity, a project idea, or simply want to discuss software development, feel free to reach out!
           </p>
         </div>
 
@@ -179,13 +179,12 @@ export default function ContactSection() {
             <button
               type="submit"
               disabled={status === "SENDING" || status === "SUCCESS"}
-              className={`w-full flex items-center justify-center gap-2 py-3.5 px-6 rounded-lg text-xs font-mono tracking-[0.2em] uppercase transition-all duration-300 font-bold cursor-pointer border ${
-                status === "SUCCESS"
-                  ? "bg-emerald-50 dark:bg-emerald-950/30 border-emerald-500 dark:border-emerald-500/50 text-emerald-800 dark:text-emerald-300"
-                  : status === "SENDING"
+              className={`w-full flex items-center justify-center gap-2 py-3.5 px-6 rounded-lg text-xs font-mono tracking-[0.2em] uppercase transition-all duration-300 font-bold cursor-pointer border ${status === "SUCCESS"
+                ? "bg-emerald-50 dark:bg-emerald-950/30 border-emerald-500 dark:border-emerald-500/50 text-emerald-800 dark:text-emerald-300"
+                : status === "SENDING"
                   ? "bg-gray-100 dark:bg-neutral-800 border-gray-300 dark:border-neutral-700 text-gray-500 dark:text-gray-400 cursor-wait animate-pulse"
                   : "bg-black dark:bg-white hover:bg-neutral-900 dark:hover:bg-neutral-100 border-transparent text-white dark:text-black hover:shadow-md hover:shadow-black/5"
-              }`}
+                }`}
             >
               {status === "IDLE" && (
                 <>
