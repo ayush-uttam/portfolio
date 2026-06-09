@@ -5,8 +5,7 @@ import CustomCursor from "./components/CustomCursor";
 import ProjectList from "./components/ProjectList";
 import AboutSection from "./components/AboutSection";
 import ContactSection from "./components/ContactSection";
-import StatsDashboard from "./components/StatsDashboard";
-import { Github, Linkedin, ChevronDown, ArrowUpRight, Terminal } from "lucide-react";
+import { Github, Linkedin, ArrowUpRight } from "lucide-react";
 
 export default function App() {
   const [scrollProgress, setScrollProgress] = useState(0);
@@ -95,7 +94,7 @@ export default function App() {
       <div className="absolute top-0 inset-0 pointer-events-none z-10 bg-[linear-gradient(to_right,#f3f4f6_1px,transparent_1px),linear-gradient(to_bottom,#f3f4f6_1px,transparent_1px)] bg-[size:4rem_4rem] [mask-image:radial-gradient(ellipse_60%_50%_at_50%_0%,#000_70%,transparent_100%)] opacity-50" />
 
       {/* Floating Header */}
-      <header className="fixed top-0 left-0 right-0 z-50 py-5 px-6 md:px-12 flex justify-between items-center backdrop-blur-md border-b border-gray-150/80 bg-white/70">
+      <header className="fixed top-0 left-0 right-0 z-50 py-5 px-6 md:px-12 flex justify-between items-center backdrop-blur-md bg-white/70">
         <div className="flex items-center gap-3">
           <div className="flex flex-col">
             <span className="font-serif tracking-tight font-bold text-black text-base md:text-lg">
@@ -114,41 +113,37 @@ export default function App() {
         <nav className="hidden md:flex items-center gap-1">
           <button
             onClick={() => scrollToRef(heroRef)}
-            className={`text-xs font-mono px-4 py-1.5 rounded-lg transition-all cursor-pointer ${
-              activeSection === "home"
-                ? "bg-black text-white font-bold"
-                : "hover:text-black text-gray-500 px-4 py-1.5"
-            }`}
+            className={`text-xs font-mono px-4 py-1.5 rounded-lg transition-all cursor-pointer ${activeSection === "home"
+              ? "bg-black text-white font-bold"
+              : "hover:text-black text-gray-500 px-4 py-1.5"
+              }`}
           >
             INDEX // HOME
           </button>
           <button
             onClick={() => scrollToRef(projectsRef)}
-            className={`text-xs font-mono px-4 py-1.5 rounded-lg transition-all cursor-pointer ${
-              activeSection === "projects"
-                ? "bg-black text-white font-bold"
-                : "hover:text-black text-gray-500 px-4 py-1.5"
-            }`}
+            className={`text-xs font-mono px-4 py-1.5 rounded-lg transition-all cursor-pointer ${activeSection === "projects"
+              ? "bg-black text-white font-bold"
+              : "hover:text-black text-gray-500 px-4 py-1.5"
+              }`}
           >
             FEED // PROJECTS
           </button>
           <button
             onClick={() => scrollToRef(aboutRef)}
-            className={`text-xs font-mono px-4 py-1.5 rounded-lg transition-all cursor-pointer ${
-              activeSection === "about"
-                ? "bg-black text-white font-bold"
-                : "hover:text-black text-gray-500 px-4 py-1.5"
-            }`}
+            className={`text-xs font-mono px-4 py-1.5 rounded-lg transition-all cursor-pointer ${activeSection === "about"
+              ? "bg-black text-white font-bold"
+              : "hover:text-black text-gray-500 px-4 py-1.5"
+              }`}
           >
             DOSSIER // ABOUT
           </button>
           <button
             onClick={() => scrollToRef(contactRef)}
-            className={`text-xs font-mono px-4 py-1.5 rounded-lg transition-all cursor-pointer ${
-              activeSection === "contact"
-                ? "bg-black text-white font-bold"
-                : "hover:text-black text-gray-500 px-4 py-1.5"
-            }`}
+            className={`text-xs font-mono px-4 py-1.5 rounded-lg transition-all cursor-pointer ${activeSection === "contact"
+              ? "bg-black text-white font-bold"
+              : "hover:text-black text-gray-500 px-4 py-1.5"
+              }`}
           >
             SIGNAL // CONTACT
           </button>
@@ -183,14 +178,6 @@ export default function App() {
         >
           {/* Main Hero Bento Frame */}
           <div className="max-w-5xl w-full text-center space-y-8 md:space-y-12 py-10">
-            {/* Top Badge */}
-            <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full border border-gray-200 bg-white/80 text-gray-700 backdrop-blur-sm shadow-sm">
-              <Terminal className="w-3.5 h-3.5 text-black" />
-              <span className="text-[10px] font-mono tracking-widest uppercase font-bold">
-                EST. COORD 2026 // COGNITIVE LABS
-              </span>
-            </div>
-
             {/* Giant iOS / Playfair Bold Typography */}
             <div className="relative overflow-visible py-2">
               <span className="sr-only">AYUSH Uttam</span>
@@ -198,9 +185,9 @@ export default function App() {
             </div>
 
             {/* Sub-description subtitle */}
-            <div className="max-w-xl mx-auto space-y-6">
-              <p className="font-sans text-base md:text-lg text-gray-600 leading-relaxed font-light">
-                Full-Stack Systems Architect and Visual WebGL Engineer. Building elegant container workflows, procedural shaders, and minimalist performant user models.
+            <div className="max-w-3xl mx-auto space-y-6">
+              <p className="font-sans text-base md:text-lg text-gray-650 leading-relaxed font-light">
+                Information Technology undergraduate with strong skills in C++, JavaScript, React.js, Node.js, and AI-powered application development. Experienced in building full-stack and IoT solutions, with a proven track record of delivering innovative projects and winning hackathon competitions.
               </p>
 
               {/* Action Callouts */}
@@ -221,23 +208,8 @@ export default function App() {
             </div>
           </div>
 
-          {/* Bottom mouse-scroll down indicator */}
-          <button
-            onClick={() => scrollToRef(projectsRef)}
-            className="absolute bottom-8 flex flex-col items-center gap-2 cursor-pointer text-gray-400 hover:text-black transition-all group animate-bounce"
-            title="Scroll Down"
-          >
-            <span className="text-[10px] font-mono tracking-widest uppercase opacity-70 group-hover:opacity-100 font-bold">
-              DEVIATE SECRETS OVERVIEW
-            </span>
-            <ChevronDown className="w-4 h-4 group-hover:translate-y-0.5 transition-transform" />
-          </button>
-        </section>
 
-        {/* Section 2: Stats Dashboard */}
-        <div className="max-w-7xl mx-auto px-6 md:px-12 py-10">
-          <StatsDashboard />
-        </div>
+        </section>
 
         {/* Section 3: Dynamic Feed Projects */}
         <section

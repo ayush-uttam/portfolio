@@ -22,6 +22,7 @@ interface CustomProject {
   readmeGist: string[];
   techStack: string[];
   githubUrl: string;
+  demoUrl?: string;
   majorSpecs: SpecItem[];
   colorTheme: string;
 }
@@ -42,6 +43,7 @@ const FEATURED_PROJECTS: CustomProject[] = [
     ],
     techStack: ["TypeScript", "Google Gemini API", "OpenAI API", "Firebase", "Node.js", "Express", "React", "Vercel"],
     githubUrl: "https://github.com/ayush-uttam/ai-code-detector",
+    demoUrl: "https://ai-code-detector-xi.vercel.app/",
     majorSpecs: [
       { label: "DASHBOARD LATENCY", value: "< 180ms" },
       { label: "DETECTION CAPABILITY", value: "Multi-LLM verification" },
@@ -86,6 +88,7 @@ const FEATURED_PROJECTS: CustomProject[] = [
     ],
     techStack: ["React.js", "Node.js", "Supabase", "Python", "Scikit-Learn", "Razorpay API"],
     githubUrl: "https://github.com/ayush-uttam/Al-powered-insurance-for-gig-workers",
+    demoUrl: "https://saferide-mu.vercel.app/",
     majorSpecs: [
       { label: "CLAIM PROCESSING", value: "Parametric Instant" },
       { label: "FRAUD DEFENSE", value: "GPS Anomaly Detection" },
@@ -436,29 +439,43 @@ export default function ProjectList() {
                       </div>
 
                       {/* Browser Mockup Window */}
-                      <div className="w-full h-[180px] bg-neutral-900 rounded-xl overflow-hidden border border-neutral-800 shadow-lg flex flex-col">
-                        {/* Browser header tab */}
-                        <div className="h-6 bg-neutral-950 px-3 flex items-center justify-between border-b border-neutral-850 flex-shrink-0">
-                          <div className="flex items-center gap-1.5">
-                            <span className="w-1.5 h-1.5 rounded-full bg-rose-500/85" />
-                            <span className="w-1.5 h-1.5 rounded-full bg-amber-500/85" />
-                            <span className="w-1.5 h-1.5 rounded-full bg-emerald-500/85" />
-                          </div>
-                          <div className="bg-neutral-900 text-[7.5px] font-mono text-neutral-500 px-3 py-0.5 rounded border border-neutral-800/60 truncate max-w-[160px]">
-                            {project.id === "sentinel-ai" && "sentinel-ai.org"}
-                            {project.id === "fault-detector" && "telemetry-node.local"}
-                            {project.id === "gigshield" && "saferide.ai/dashboard"}
-                          </div>
-                          <div className="w-6" />
+                      {project.id === "sentinel-ai" ? (
+                        <div className="w-full h-[180px] bg-neutral-900 rounded-xl overflow-hidden border border-neutral-800 shadow-lg relative flex items-center justify-center">
+                          <img 
+                            src="/sentinel-ai-screenshot.png" 
+                            alt="Sentinel AI Academic Integrity Audit Suite" 
+                            className="w-full h-full object-cover" 
+                          />
                         </div>
-                        
-                        {/* Browser body / mock content */}
-                        <div className="flex-1 p-3 flex flex-col justify-between overflow-hidden relative bg-neutral-900">
-                          {project.id === "sentinel-ai" && <SentinelAIMockup />}
-                          {project.id === "fault-detector" && <ESPNowMockup />}
-                          {project.id === "gigshield" && <SafeRideMockup />}
+                      ) : project.id === "gigshield" ? (
+                        <div className="w-full h-[180px] bg-neutral-900 rounded-xl overflow-hidden border border-neutral-800 shadow-lg relative flex items-center justify-center">
+                          <img 
+                            src="/saferide-screenshot.png" 
+                            alt="SafeRideAI Parametric Insurance Suite" 
+                            className="w-full h-full object-cover" 
+                          />
                         </div>
-                      </div>
+                      ) : (
+                        <div className="w-full h-[180px] bg-neutral-900 rounded-xl overflow-hidden border border-neutral-800 shadow-lg flex flex-col">
+                          {/* Browser header tab */}
+                          <div className="h-6 bg-neutral-950 px-3 flex items-center justify-between border-b border-neutral-850 flex-shrink-0">
+                            <div className="flex items-center gap-1.5">
+                              <span className="w-1.5 h-1.5 rounded-full bg-rose-500/85" />
+                              <span className="w-1.5 h-1.5 rounded-full bg-amber-500/85" />
+                              <span className="w-1.5 h-1.5 rounded-full bg-emerald-500/85" />
+                            </div>
+                            <div className="bg-neutral-900 text-[7.5px] font-mono text-neutral-500 px-3 py-0.5 rounded border border-neutral-800/60 truncate max-w-[160px]">
+                              {project.id === "fault-detector" && "telemetry-node.local"}
+                            </div>
+                            <div className="w-6" />
+                          </div>
+                          
+                          {/* Browser body / mock content */}
+                          <div className="flex-1 p-3 flex flex-col justify-between overflow-hidden relative bg-neutral-900">
+                            {project.id === "fault-detector" && <ESPNowMockup />}
+                          </div>
+                        </div>
+                      )}
                     </div>
                   </div>
                 </div>
@@ -469,18 +486,34 @@ export default function ProjectList() {
                     STATUS // INTEGRATED DEPLOYMENT
                   </div>
 
-                  {/* Premium Redirect Action Button */}
-                  <a
-                    href={project.githubUrl}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    onClick={(e) => !isSelected && e.preventDefault()} // prevent redirection when sliding side cards
-                    className="group/btn inline-flex items-center justify-center gap-2 bg-black text-white px-5 py-2.5 rounded-xl text-xs font-mono tracking-wider uppercase border border-black hover:bg-neutral-900 transition-all duration-350 cursor-pointer shadow hover:shadow-black/10 text-center"
-                  >
-                    <Github className="w-3.5 h-3.5" />
-                    <span>View source</span>
-                    <ExternalLink className="w-3 h-3 text-white/70" />
-                  </a>
+                  <div className="flex items-center gap-2">
+                    {/* View Source Button */}
+                    <a
+                      href={project.githubUrl}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      onClick={(e) => !isSelected && e.preventDefault()} // prevent redirection when sliding side cards
+                      className="group/btn inline-flex items-center justify-center gap-2 bg-white text-black px-4 py-2 rounded-xl text-xs font-mono tracking-wider uppercase border border-gray-200 hover:border-black transition-all duration-350 cursor-pointer shadow-sm hover:shadow-black/5 text-center"
+                    >
+                      <Github className="w-3.5 h-3.5" />
+                      <span>View source</span>
+                      <ExternalLink className="w-3 h-3 text-black/50" />
+                    </a>
+
+                    {/* Live Demo Button (only if demoUrl exists) */}
+                    {project.demoUrl && (
+                      <a
+                        href={project.demoUrl}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        onClick={(e) => !isSelected && e.preventDefault()}
+                        className="group/btn inline-flex items-center justify-center gap-2 bg-black text-white px-4 py-2 rounded-xl text-xs font-mono tracking-wider uppercase border border-black hover:bg-neutral-900 transition-all duration-350 cursor-pointer shadow hover:shadow-black/10 text-center"
+                      >
+                        <span>Live demo</span>
+                        <ExternalLink className="w-3 h-3 text-white/75" />
+                      </a>
+                    )}
+                  </div>
                 </div>
               </div>
             );

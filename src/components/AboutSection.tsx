@@ -23,24 +23,31 @@ const SKILLS: SkillCategory[] = [
 const EXPERIENCE: ExperienceItem[] = [
   {
     id: "exp-1",
-    role: "Full-Stack Software Engineer",
-    company: "Autonomous Engineering Labs",
-    period: "2024 - PRESENT",
-    description: "Developing container workflows and WebGL node-graph generation pipelines. Optimized client rendering states reducing frame-drop by over 40% using raw structural buffers."
+    role: "Started B.Tech CSE",
+    company: "Information Technology",
+    period: "2024",
+    description: "• Started B.Tech in Computer Science Engineering (CSE)\n• Initiated exploration of system programming and basic computing theory\n• Engaged in campus dev circles and student developer chapters"
   },
   {
     id: "exp-2",
-    role: "Creative Web Developer",
-    company: "Synthesis Interactive",
-    period: "2022 - 2024",
-    description: "Engineered high-performance WebGL & Canvas integrations and customized interactive shaders for high-end boutique product marketing visuals. Designed fluid typography layout variables."
+    role: "Focused on Java and DSA",
+    company: "Deep Algorithmic Foundations",
+    period: "2025",
+    description: "• Focused heavily on Java programming and deep object-oriented principles\n• Mastered core Data Structures & Algorithms (DSA)\n• Built robust algorithmic foundations through constant competitive problem-solving"
   },
   {
     id: "exp-3",
-    role: "Open Source Contributor & Dev",
-    company: "GitHub Community",
-    period: "2020 - PRESENT",
-    description: "Publishing and maintaining custom dev tools, small RPC servers, SQLite local-first synchronize wrappers, and responsive UI coordinates. Actively passionate about minimal high-performance systems."
+    role: "Developed Low-Voltage-breakage detection system",
+    company: "Hardware + Software collaboration",
+    period: "2025",
+    description: "• Developed a real-time fault detection system using C++ and NodeMCU to identify AC line breakage\n• Optimized the detection algorithm, reducing fault identification time from hours to under 5 seconds.\n• Secured 1st place among 60+ teams at VytoHackClash Hackathon for presenting the solution."
+  },
+  {
+    id: "exp-4",
+    role: "Built GigshieldAI & Sentinel AI",
+    company: "Practical Systems & Backend Focus",
+    period: "2026",
+    description: "• Built Gigshield AI (AI-Powered Parametric Insurance Platform )\n• Built Sentinel AI (flagship AI-powered code authenticity platform)\n• Started Backend Development using high-throughput Node.js & Express architectures"
   }
 ];
 
@@ -56,14 +63,26 @@ export default function AboutSection() {
           <h3 className="font-serif text-3xl md:text-5xl font-semibold text-black tracking-tight leading-none mb-6">
             Engineering digital experiences with <span className="italic block sm:inline text-black font-normal underline underline-offset-8">precision</span>.
           </h3>
-          <div className="space-y-4 text-base text-gray-600 font-sans leading-relaxed">
-            <p>
-              I am a software engineer and creative developer specializing in robust full-stack software, WebGL, and high-performance user utilities. Based in the synthesis of architectural robustness and visual flow, I build software that runs rapidly and responds instantly.
-            </p>
-            <p>
-              Applying structured type systems in TypeScript and high-performance algorithms in Rust, I craft user experiences that feel solid, clean, and completely reactive. My work rejects bloated layouts, prioritizing instead elegant minimalism and meticulous typography alignment.
-            </p>
-          </div>
+          <ul className="space-y-3 text-base text-gray-600 font-sans leading-relaxed font-light list-disc list-outside pl-5">
+            <li>
+              <strong>Academic Foundation:</strong> Information Technology undergraduate at G.L. Bajaj Institute of Technology and Management with a strong foundation in Data Structures, Algorithms, Web Development, and AI-powered applications.
+            </li>
+            <li>
+              <strong>Technical Proficiencies:</strong> Skilled in C++, Java, Python, JavaScript, React.js, Node.js, and modern cloud platforms.
+            </li>
+            <li>
+              <strong>Full-Stack & Systems:</strong> Experienced in building full-stack applications, AI-integrated platforms, and IoT-based hardware/software systems.
+            </li>
+            <li>
+              <strong>API & Cloud Scale:</strong> Demonstrated ability to design scalable solutions leveraging OpenAI, Gemini APIs, Firebase, Supabase, and AWS.
+            </li>
+            <li>
+              <strong>Key Achievements:</strong> Secured 1st place among 60+ teams at the VytoHackClash Hackathon.
+            </li>
+            <li>
+              <strong>Passions:</strong> Passionate about software engineering, competitive programming, and leveraging AI models to solve real-world problems.
+            </li>
+          </ul>
         </div>
 
         {/* Skills Bento Block */}
@@ -108,11 +127,8 @@ export default function AboutSection() {
           <span className="text-xs font-mono text-black uppercase tracking-[0.2em] font-bold block mb-3">
             JOURNEY // HISTORY
           </span>
-          <h3 className="font-serif text-3xl font-semibold text-black tracking-tight">
-            Work Experience
-          </h3>
           <p className="font-sans text-sm text-gray-500 mt-1">
-            A history of crafting high-impact software systems
+            A timeline of academic milestones, hackathons, and software projects
           </p>
         </div>
 
@@ -133,7 +149,7 @@ export default function AboutSection() {
                 <p className="font-mono text-xs text-gray-500 mt-0.5 font-bold uppercase tracking-widest">
                   {item.company}
                 </p>
-                <p className="font-sans text-sm text-gray-600 leading-relaxed mt-3">
+                <p className="font-sans text-sm text-gray-600 leading-relaxed mt-3 whitespace-pre-line">
                   {item.description}
                 </p>
               </div>
