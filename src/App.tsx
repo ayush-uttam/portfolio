@@ -325,10 +325,7 @@ export default function App() {
         <div className="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-center gap-6">
           <div className="flex flex-col items-center md:items-start gap-1">
             <span className="font-serif tracking-tight font-bold text-black dark:text-white text-base">
-              AYUSH UTTAM
-            </span>
-            <span className="text-[10px] font-mono text-gray-500 dark:text-gray-400 uppercase tracking-widest">
-              HANDCRAFTED IN MINIMAL METROPOLIS © 2026
+              Handcrafted by AYUSH UTTAM
             </span>
           </div>
 
