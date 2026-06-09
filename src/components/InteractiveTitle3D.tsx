@@ -422,22 +422,8 @@ export default function InteractiveTitle3D() {
     >
       {/* Embedded CSS Styles for the wavy text background */}
       <style>{`
-        @keyframes enterFadeSlide {
-          0% {
-            opacity: 0;
-            filter: blur(8px);
-            transform: translateY(40px) scale(0.95);
-          }
-          100% {
-            opacity: 0.65;
-            filter: blur(0px);
-            transform: translateY(0) scale(1);
-          }
-        }
         .wavy-text-wrapper {
-          opacity: 0;
-          animation: enterFadeSlide 1.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
-          animation-delay: 0.4s;
+          opacity: 0.65;
         }
       `}</style>
 
@@ -461,13 +447,14 @@ export default function InteractiveTitle3D() {
             className="font-mono text-[11px] sm:text-xs font-semibold uppercase tracking-[0.25em] fill-slate-500/80"
             dy="-6"
           >
-            <textPath href="#wavyPath" startOffset="100%">
+            <textPath href="#wavyPath" startOffset="0%">
               Python — C++ — Java — DSA — OOPs — React — Firestore — JavaScript — IoT — Three.js — TailwindCSS — Vite — TypeScript — Motion — Python — C++ — Java — DSA — OOPs — React — Firestore — JavaScript — IoT — Three.js — TailwindCSS — Vite — TypeScript — Motion — Python — C++ — Java — DSA — OOPs — React — Firestore — JavaScript — IoT — Three.js — TailwindCSS — Vite — TypeScript — Motion
               <animate
                 attributeName="startOffset"
                 from="100%"
                 to="-100%"
                 dur="75s"
+                begin="-10.5s"
                 repeatCount="indefinite"
               />
             </textPath>

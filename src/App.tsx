@@ -17,15 +17,16 @@ export default function App() {
   const aboutRef = useRef<HTMLDivElement>(null);
   const contactRef = useRef<HTMLDivElement>(null);
 
-  // Update real system clock in UTC formats
+  // Update real system clock in IST format (UTC+5:30)
   useEffect(() => {
     const updateTime = () => {
       const now = new Date();
-      // Format: HH:MM:SS UTC
-      const hours = String(now.getUTCHours()).padStart(2, "0");
-      const minutes = String(now.getUTCMinutes()).padStart(2, "0");
-      const seconds = String(now.getUTCSeconds()).padStart(2, "0");
-      setSystemTime(`${hours}:${minutes}:${seconds} UTC`);
+      // IST is UTC + 5.5 hours
+      const istTime = new Date(now.getTime() + 5.5 * 60 * 60 * 1000);
+      const hours = String(istTime.getUTCHours()).padStart(2, "0");
+      const minutes = String(istTime.getUTCMinutes()).padStart(2, "0");
+      const seconds = String(istTime.getUTCSeconds()).padStart(2, "0");
+      setSystemTime(`${hours}:${minutes}:${seconds} IST`);
     };
 
     updateTime();
@@ -153,7 +154,7 @@ export default function App() {
         <div className="flex items-center gap-4">
           <div className="hidden lg:flex flex-col text-right">
             <span className="text-[9px] font-mono text-gray-400 uppercase tracking-widest">LOCAL TIMESTAMP</span>
-            <span className="text-[11px] font-mono text-gray-700 font-medium">{systemTime || "12:00:00 UTC"}</span>
+            <span className="text-[11px] font-mono text-gray-700 font-medium">{systemTime || "12:00:00 IST"}</span>
           </div>
 
           <a
