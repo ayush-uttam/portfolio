@@ -1,12 +1,16 @@
 import { useEffect, useState, useRef } from "react";
 
+interface CustomCursorProps {
+  isDarkMode?: boolean;
+}
+
 interface ClickEffect {
   id: number;
   x: number;
   y: number;
 }
 
-export default function CustomCursor() {
+export default function CustomCursor({ isDarkMode = false }: CustomCursorProps) {
   const cursorRef = useRef<HTMLDivElement>(null);
   const [effects, setEffects] = useState<ClickEffect[]>([]);
   const [isClicking, setIsClicking] = useState(false);
@@ -57,14 +61,14 @@ export default function CustomCursor() {
         style={{ transform: "translate3d(-100px, -100px, 0)" }}
       >
         <div className="relative">
-          {/* Pristine Black crosshair design */}
+          {/* Pristine Crosshair design */}
           <svg
             xmlns="http://www.w3.org/2000/svg"
             width="24"
             height="24"
             viewBox="0 0 24 24"
             fill="none"
-            stroke="black"
+            stroke={isDarkMode ? "white" : "black"}
             strokeWidth="1.5"
             className={`transition-all duration-150 ${
               isClicking ? "scale-75 rotate-45 stroke-rose-500" : "scale-100 rotate-0"
@@ -85,14 +89,14 @@ export default function CustomCursor() {
         >
           {/* Horizontal shooting laser line */}
           <div className="absolute top-0 left-0 -translate-y-1/2 -translate-x-1/2 flex items-center justify-center">
-            <div className="absolute h-[1.5px] bg-black animate-shoot-left origin-right" />
-            <div className="absolute h-[1.5px] bg-black animate-shoot-right origin-left" />
+            <div className={`absolute h-[1.5px] ${isDarkMode ? "bg-white" : "bg-black"} animate-shoot-left origin-right`} />
+            <div className={`absolute h-[1.5px] ${isDarkMode ? "bg-white" : "bg-black"} animate-shoot-right origin-left`} />
           </div>
 
           {/* Vertical shooting laser line */}
           <div className="absolute top-0 left-0 -translate-y-1/2 -translate-x-1/2 flex items-center justify-center">
-            <div className="absolute w-[1.5px] bg-black animate-shoot-top origin-bottom" />
-            <div className="absolute w-[1.5px] bg-black animate-shoot-bottom origin-top" />
+            <div className={`absolute w-[1.5px] ${isDarkMode ? "bg-white" : "bg-black"} animate-shoot-top origin-bottom`} />
+            <div className={`absolute w-[1.5px] ${isDarkMode ? "bg-white" : "bg-black"} animate-shoot-bottom origin-top`} />
           </div>
         </div>
       ))}

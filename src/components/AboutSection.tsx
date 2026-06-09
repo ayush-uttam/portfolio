@@ -57,13 +57,13 @@ export default function AboutSection() {
       {/* Narrative Intro & Skills: 7 Cols */}
       <div className="lg:col-span-7 space-y-10">
         <div>
-          <span className="text-xs font-mono text-black uppercase tracking-[0.2em] font-bold block mb-3">
+          <span className="text-xs font-mono text-black dark:text-gray-400 uppercase tracking-[0.2em] font-bold block mb-3">
             BIOGRAPHY // AYUSH UTTAM
           </span>
-          <h3 className="font-serif text-3xl md:text-5xl font-semibold text-black tracking-tight leading-none mb-6">
-            Engineering digital experiences with <span className="italic block sm:inline text-black font-normal underline underline-offset-8">precision</span>.
+          <h3 className="font-serif text-3xl md:text-5xl font-semibold text-black dark:text-white tracking-tight leading-none mb-6">
+            Engineering digital experiences with <span className="italic block sm:inline text-black dark:text-white font-normal underline underline-offset-8">precision</span>.
           </h3>
-          <ul className="space-y-3 text-base text-gray-600 font-sans leading-relaxed font-light list-disc list-outside pl-5">
+          <ul className="space-y-3 text-base text-gray-600 dark:text-gray-350 font-sans leading-relaxed font-light list-disc list-outside pl-5">
             <li>
               <strong>Academic Foundation:</strong> Information Technology undergraduate at G.L. Bajaj Institute of Technology and Management with a strong foundation in Data Structures, Algorithms, Web Development, and AI-powered applications.
             </li>
@@ -87,21 +87,21 @@ export default function AboutSection() {
 
         {/* Skills Bento Block */}
         <div>
-          <h4 className="font-mono text-xs text-black uppercase tracking-widest mb-6 flex items-center gap-2 font-bold">
-            <Terminal className="w-4 h-4 text-black" /> Core Skillsets & Frameworks
+          <h4 className="font-mono text-xs text-black dark:text-white uppercase tracking-widest mb-6 flex items-center gap-2 font-bold">
+            <Terminal className="w-4 h-4 text-black dark:text-white" /> Core Skillsets & Frameworks
           </h4>
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
             {SKILLS.map((cat, idx) => (
               <div
                 key={cat.title}
-                className="p-6 rounded-xl bg-white/70 border border-gray-200 hover:border-black transition-all duration-350 backdrop-blur-md"
+                className="p-6 rounded-xl bg-white/70 dark:bg-neutral-900/40 border border-gray-200 dark:border-neutral-850 hover:border-black dark:hover:border-white transition-all duration-350 backdrop-blur-md"
               >
                 <div className="flex items-center gap-2.5 mb-3">
-                  {idx === 0 && <Cpu className="w-4 h-4 text-black opacity-60" />}
-                  {idx === 1 && <Sparkles className="w-4 h-4 text-black opacity-60" />}
-                  {idx === 2 && <Layers className="w-4 h-4 text-black opacity-60" />}
-                  {idx === 3 && <Award className="w-4 h-4 text-black opacity-60" />}
-                  <h5 className="font-mono text-xs font-bold text-black uppercase tracking-wider">
+                  {idx === 0 && <Cpu className="w-4 h-4 text-black dark:text-white opacity-60 dark:opacity-80" />}
+                  {idx === 1 && <Sparkles className="w-4 h-4 text-black dark:text-white opacity-60 dark:opacity-80" />}
+                  {idx === 2 && <Layers className="w-4 h-4 text-black dark:text-white opacity-60 dark:opacity-80" />}
+                  {idx === 3 && <Award className="w-4 h-4 text-black dark:text-white opacity-60 dark:opacity-80" />}
+                  <h5 className="font-mono text-xs font-bold text-black dark:text-white uppercase tracking-wider">
                     {cat.title}
                   </h5>
                 </div>
@@ -109,7 +109,7 @@ export default function AboutSection() {
                   {cat.items.map((skill) => (
                     <span
                       key={skill}
-                      className="text-xs font-sans px-2.5 py-1 rounded-md bg-gray-50 border border-gray-200 text-gray-600 hover:text-black hover:border-black transition-colors"
+                      className="text-xs font-sans px-2.5 py-1 rounded-md bg-gray-50 dark:bg-neutral-950 border border-gray-200 dark:border-neutral-850 text-gray-600 dark:text-gray-400 hover:text-black dark:hover:text-white hover:border-black dark:hover:border-white transition-colors"
                     >
                       {skill}
                     </span>
@@ -124,32 +124,32 @@ export default function AboutSection() {
       {/* Experience Timeline: 5 Cols */}
       <div className="lg:col-span-5 space-y-8">
         <div>
-          <span className="text-xs font-mono text-black uppercase tracking-[0.2em] font-bold block mb-3">
+          <span className="text-xs font-mono text-black dark:text-gray-400 uppercase tracking-[0.2em] font-bold block mb-3">
             JOURNEY // HISTORY
           </span>
-          <p className="font-sans text-sm text-gray-500 mt-1">
+          <p className="font-sans text-sm text-gray-500 dark:text-gray-400 mt-1">
             A timeline of academic milestones, hackathons, and software projects
           </p>
         </div>
 
         {/* Timeline Line container */}
-        <div className="relative border-l border-gray-200 pl-6 ml-2 space-y-10 py-2">
+        <div className="relative border-l border-gray-200 dark:border-neutral-850 pl-6 ml-2 space-y-10 py-2">
           {EXPERIENCE.map((item) => (
             <div key={item.id} className="relative group">
               {/* Timeline marker node */}
-              <div className="absolute -left-[31px] top-1.5 w-2.5 h-2.5 rounded-full border border-black bg-white group-hover:scale-125 group-hover:bg-black transition-all shadow-sm" />
+              <div className="absolute -left-[31px] top-1.5 w-2.5 h-2.5 rounded-full border border-black dark:border-white bg-white dark:bg-[#050505] group-hover:scale-125 group-hover:bg-black dark:group-hover:bg-white transition-all shadow-sm" />
 
               <div>
-                <span className="text-[9px] font-mono tracking-widest text-white uppercase font-bold bg-black px-2.5 py-0.5 rounded-md mb-2 inline-block">
+                <span className="text-[9px] font-mono tracking-widest text-white dark:text-black uppercase font-bold bg-black dark:bg-white px-2.5 py-0.5 rounded-md mb-2 inline-block">
                   {item.period}
                 </span>
-                <h4 className="font-mono text-lg font-bold text-gray-900 group-hover:text-black transition-colors tracking-tight">
+                <h4 className="font-mono text-lg font-bold text-gray-900 dark:text-white group-hover:text-black dark:group-hover:text-neutral-200 transition-colors tracking-tight">
                   {item.role}
                 </h4>
-                <p className="font-mono text-xs text-gray-500 mt-0.5 font-bold uppercase tracking-widest">
+                <p className="font-mono text-xs text-gray-500 dark:text-gray-400 mt-0.5 font-bold uppercase tracking-widest">
                   {item.company}
                 </p>
-                <p className="font-sans text-sm text-gray-600 leading-relaxed mt-3 whitespace-pre-line">
+                <p className="font-sans text-sm text-gray-605 dark:text-gray-350 leading-relaxed mt-3 whitespace-pre-line">
                   {item.description}
                 </p>
               </div>

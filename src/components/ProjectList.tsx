@@ -237,21 +237,21 @@ export default function ProjectList() {
   };
 
   return (
-    <div id="projects-section" className="w-full py-10 selection:bg-black selection:text-white overflow-x-hidden">
+    <div id="projects-section" className="w-full py-10 selection:bg-black selection:text-white dark:selection:bg-white dark:selection:text-black overflow-x-hidden">
       {/* Structural Title Section */}
-      <div className="mb-10 border-b border-gray-100 pb-8 px-4 max-w-7xl mx-auto">
+      <div className="mb-10 border-b border-gray-100 dark:border-neutral-900 pb-8 px-4 max-w-7xl mx-auto">
         <div className="flex items-center justify-between">
           <div>
             <div className="flex items-center gap-2 mb-2">
-              <span className="w-2.5 h-2.5 bg-black rounded-full animate-pulse" />
-              <span className="font-mono text-xs text-gray-400 tracking-widest uppercase">
+              <span className="w-2.5 h-2.5 bg-black dark:bg-white rounded-full animate-pulse" />
+              <span className="font-mono text-xs text-gray-400 dark:text-gray-500 tracking-widest uppercase">
                 Verified Repositories
               </span>
             </div>
-            <h3 className="font-sans text-4xl md:text-5xl lg:text-6xl text-black font-black tracking-tight uppercase">
+            <h3 className="font-sans text-4xl md:text-5xl lg:text-6xl text-black dark:text-white font-black tracking-tight uppercase">
               ENGINEERED PROJECTS
             </h3>
-            <p className="font-sans text-sm md:text-base text-gray-500 mt-2 max-w-2xl leading-relaxed">
+            <p className="font-sans text-sm md:text-base text-gray-500 dark:text-gray-400 mt-2 max-w-2xl leading-relaxed">
               Correct and verified specifications retrieved directly from official codebase README records. Click peeking side card borders or tab selectors to cycle.
             </p>
           </div>
@@ -260,22 +260,22 @@ export default function ProjectList() {
           <div className="hidden sm:flex items-center gap-2.5 font-mono">
             <button
               onClick={prevProject}
-              className="p-3 border border-gray-200 hover:border-black rounded-xl bg-white hover:bg-neutral-50 transition-all cursor-pointer select-none active:scale-95 group/nav"
+              className="p-3 border border-gray-200 dark:border-neutral-850 hover:border-black dark:hover:border-white rounded-xl bg-white dark:bg-neutral-900/60 hover:bg-neutral-50 dark:hover:bg-neutral-850 transition-all cursor-pointer select-none active:scale-95 group/nav"
               title="Previous Project (Cyclic)"
             >
               <div className="flex items-center justify-center gap-1">
-                <span className="text-xs transition-transform group-hover/nav:-translate-x-0.5">←</span>
-                <span className="text-[10px] tracking-wider uppercase font-semibold text-gray-500 group-hover/nav:text-black">PREV</span>
+                <span className="text-xs transition-transform group-hover/nav:-translate-x-0.5 dark:text-white">←</span>
+                <span className="text-[10px] tracking-wider uppercase font-semibold text-gray-500 dark:text-gray-400 group-hover/nav:text-black dark:group-hover/nav:text-white">PREV</span>
               </div>
             </button>
             <button
               onClick={nextProject}
-              className="p-3 border border-gray-200 hover:border-black rounded-xl bg-white hover:bg-neutral-50 transition-all cursor-pointer select-none active:scale-95 group/nav"
+              className="p-3 border border-gray-200 dark:border-neutral-850 hover:border-black dark:hover:border-white rounded-xl bg-white dark:bg-neutral-900/60 hover:bg-neutral-50 dark:hover:bg-neutral-850 transition-all cursor-pointer select-none active:scale-95 group/nav"
               title="Next Project (Cyclic)"
             >
               <div className="flex items-center justify-center gap-1">
-                <span className="text-[10px] tracking-wider uppercase font-semibold text-gray-500 group-hover/nav:text-black">NEXT</span>
-                <span className="text-xs transition-transform group-hover/nav:translate-x-0.5">→</span>
+                <span className="text-[10px] tracking-wider uppercase font-semibold text-gray-500 dark:text-gray-400 group-hover/nav:text-black dark:group-hover/nav:text-white">NEXT</span>
+                <span className="text-xs transition-transform group-hover/nav:translate-x-0.5 dark:text-white">→</span>
               </div>
             </button>
           </div>
@@ -289,8 +289,8 @@ export default function ProjectList() {
               onClick={() => setActiveProjectIdx(idx)}
               className={`px-4 py-2 text-xs font-mono tracking-wider uppercase border rounded-lg transition-all duration-300 ${
                 activeProjectIdx === idx
-                  ? "bg-black text-white border-black shadow"
-                  : "bg-white text-gray-400 border-gray-200 hover:border-black hover:text-black"
+                  ? "bg-black text-white border-black dark:bg-white dark:text-black dark:border-white shadow"
+                  : "bg-white text-gray-400 border-gray-200 dark:bg-neutral-900/60 dark:text-gray-400 dark:border-neutral-850 dark:hover:border-white dark:hover:text-white hover:border-black hover:text-black"
               }`}
             >
               {proj.name}
@@ -343,10 +343,10 @@ export default function ProjectList() {
               <div
                 key={project.id}
                 onClick={() => !isSelected && setActiveProjectIdx(idx)}
-                className={`group absolute top-0 bottom-0 flex flex-col justify-between p-5 md:p-6 bg-white border rounded-2xl shrink-0 select-none ${
+                className={`group absolute top-0 bottom-0 flex flex-col justify-between p-5 md:p-6 bg-white dark:bg-neutral-900/90 border border-gray-200 dark:border-neutral-850 rounded-2xl shrink-0 select-none ${
                   isSelected
-                    ? "border-black/60 shadow-xl shadow-black/5 z-10 opacity-100"
-                    : "border-gray-200/80 opacity-40 hover:opacity-75 hover:border-gray-400 cursor-pointer z-0 blur-[0.4px]"
+                    ? "border-black/60 dark:border-white/60 shadow-xl shadow-black/5 dark:shadow-white/5 z-10 opacity-100"
+                    : "border-gray-200/80 dark:border-neutral-850/80 opacity-40 hover:opacity-75 hover:border-gray-400 dark:hover:border-neutral-750 cursor-pointer z-0 blur-[0.4px]"
                 }`}
                 style={{
                   transform: `translate3d(calc(-50% + ${diff} * (var(--card-width) + var(--card-gap))), 0, 0) scale(${isSelected ? 1 : 0.92})`,
@@ -357,13 +357,13 @@ export default function ProjectList() {
               >
                 {/* Subtle Accent Radial Glow for Selected Card */}
                 {isSelected && (
-                  <div className="absolute top-0 right-0 w-36 h-36 bg-radial from-neutral-50 to-transparent opacity-60 pointer-events-none rounded-tr-2xl" />
+                  <div className="absolute top-0 right-0 w-36 h-36 bg-radial from-neutral-50 to-transparent dark:from-neutral-950 opacity-60 pointer-events-none rounded-tr-2xl" />
                 )}
 
                 {/* Adaptive Indicator for Side Cards */}
                 {!isSelected && (
                   <div className="absolute inset-0 bg-transparent flex items-center justify-center pointer-events-none">
-                    <span className="font-mono text-xs text-gray-400 bg-white border border-gray-150 px-3 py-1.5 rounded-lg opacity-0 group-hover:opacity-100 transition-opacity flex items-center gap-1">
+                    <span className="font-mono text-xs text-gray-400 bg-white border border-gray-150 dark:text-gray-300 dark:bg-neutral-950 dark:border-neutral-800 px-3 py-1.5 rounded-lg opacity-0 group-hover:opacity-100 transition-opacity flex items-center gap-1">
                       <span>Click to view</span>
                       <ArrowRight className="w-3 h-3" />
                     </span>
@@ -373,30 +373,30 @@ export default function ProjectList() {
                 {/* Main Content Grid */}
                 <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 md:gap-8 flex-1 min-h-0">
                   {/* Part 1: Metadata Stats & Telemetry Column (7 Columns) */}
-                  <div className="lg:col-span-7 flex flex-col justify-between border-b lg:border-b-0 border-gray-150 pb-6 lg:pb-0 lg:pr-8 relative lg:after:absolute lg:after:content-[''] lg:after:top-0 lg:after:bottom-6 lg:after:right-0 lg:after:w-[1px] lg:after:bg-gray-150">
+                  <div className="lg:col-span-7 flex flex-col justify-between border-b lg:border-b-0 border-gray-150 dark:border-neutral-800 pb-6 lg:pb-0 lg:pr-8 relative lg:after:absolute lg:after:content-[''] lg:after:top-0 lg:after:bottom-6 lg:after:right-0 lg:after:w-[1px] lg:after:bg-gray-150 dark:lg:after:bg-neutral-800">
                     <div>
                       {/* Tag Category Pill */}
-                      <div className="inline-block text-[10px] font-mono tracking-widest uppercase text-gray-450 mb-3 bg-gray-50/80 border border-gray-200 px-2.5 py-1 rounded-full">
+                      <div className="inline-block text-[10px] font-mono tracking-widest uppercase text-gray-450 dark:text-gray-400 mb-3 bg-gray-50/80 border border-gray-200 dark:bg-neutral-950/80 dark:border-neutral-800 px-2.5 py-1 rounded-full">
                         {project.category}
                       </div>
 
                       {/* Project Title */}
-                      <h4 className="font-sans text-xl sm:text-2xl font-black text-black tracking-tight leading-tight uppercase">
+                      <h4 className="font-sans text-xl sm:text-2xl font-black text-black dark:text-white tracking-tight leading-tight uppercase">
                         {project.name}
                       </h4>
-                      <p className="font-mono text-[9px] sm:text-[10px] text-gray-400 mt-0.5 mb-4 lowercase">
+                      <p className="font-mono text-[9px] sm:text-[10px] text-gray-400 dark:text-gray-500 mt-0.5 mb-4 lowercase">
                         {project.githubName} // repository
                       </p>
 
-                      <p className="font-sans text-gray-550 text-xs lg:text-[13px] leading-relaxed mb-3">
+                      <p className="font-sans text-gray-550 dark:text-gray-300 text-xs lg:text-[13px] leading-relaxed mb-3">
                         {project.description}
                       </p>
 
                       {/* Built with techs */}
                       <div className="mb-3">
                         <div className="flex items-center gap-1.5 mb-2">
-                          <Code className="w-3.5 h-3.5 text-gray-400" />
-                          <span className="font-mono text-[9px] text-gray-455 uppercase tracking-widest">
+                          <Code className="w-3.5 h-3.5 text-gray-400 dark:text-gray-500" />
+                          <span className="font-mono text-[9px] text-gray-455 dark:text-gray-450 uppercase tracking-widest">
                             Built with Stack
                           </span>
                         </div>
@@ -404,7 +404,7 @@ export default function ProjectList() {
                           {project.techStack.map((tech) => (
                             <span
                               key={tech}
-                              className="font-mono text-[9px] bg-black/[0.03] text-black border border-black/[0.08] hover:border-black/50 px-2 py-0.5 rounded-md transition-all"
+                              className="font-mono text-[9px] bg-black/[0.03] dark:bg-white/[0.03] text-black dark:text-white border border-black/[0.08] dark:border-white/[0.08] hover:border-black/50 dark:hover:border-white/50 px-2 py-0.5 rounded-md transition-all"
                             >
                               {tech}
                             </span>
@@ -414,16 +414,16 @@ export default function ProjectList() {
                     </div>
 
                     {/* Compact Specs Bento Panel */}
-                    <div className="space-y-1.5 bg-neutral-50/80 rounded-xl p-2.5 border border-gray-200/60 font-mono mt-2">
-                      <div className="text-[9px] text-gray-400 uppercase tracking-wider mb-1 border-b border-gray-150 pb-1 flex items-center justify-between">
+                    <div className="space-y-1.5 bg-neutral-50/80 dark:bg-neutral-950/80 rounded-xl p-2.5 border border-gray-200/60 dark:border-neutral-850/60 font-mono mt-2">
+                      <div className="text-[9px] text-gray-400 dark:text-gray-500 uppercase tracking-wider mb-1 border-b border-gray-150 dark:border-neutral-850 pb-1 flex items-center justify-between">
                         <span>Telemetry Specs</span>
                         {isSelected && <span className="w-1.5 h-1.5 bg-emerald-500 rounded-full animate-ping" />}
                       </div>
                       <div className="grid grid-cols-3 gap-4">
                         {project.majorSpecs.map((spec, i) => (
                           <div key={i} className="flex flex-col text-[10px]">
-                            <span className="text-gray-400 uppercase text-[8px] tracking-wider">{spec.label}</span>
-                            <span className="font-semibold text-black truncate mt-0.5">{spec.value}</span>
+                            <span className="text-gray-400 dark:text-gray-500 uppercase text-[8px] tracking-wider">{spec.label}</span>
+                            <span className="font-semibold text-black dark:text-white truncate mt-0.5">{spec.value}</span>
                           </div>
                         ))}
                       </div>
@@ -433,7 +433,7 @@ export default function ProjectList() {
                   {/* Part 2: Website Snapshot Column (5 Columns) */}
                   <div className="lg:col-span-5 flex flex-col justify-center py-6 lg:py-0 lg:pl-4">
                     <div className="w-full flex flex-col justify-center">
-                      <div className="font-mono text-[9px] text-gray-400 uppercase tracking-widest mb-3 flex items-center gap-1.5">
+                      <div className="font-mono text-[9px] text-gray-400 dark:text-gray-500 uppercase tracking-widest mb-3 flex items-center gap-1.5">
                         <span className="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-pulse" />
                         <span>Live Dashboard Preview</span>
                       </div>
@@ -481,8 +481,8 @@ export default function ProjectList() {
                 </div>
 
                 {/* Spanning Footer Row */}
-                <div className="pt-4 border-t border-gray-150 flex flex-col sm:flex-row sm:items-center justify-between gap-4 mt-4 flex-shrink-0">
-                  <div className="font-mono text-[9px] text-gray-400">
+                <div className="pt-4 border-t border-gray-150 dark:border-neutral-800 flex flex-col sm:flex-row sm:items-center justify-between gap-4 mt-4 flex-shrink-0">
+                  <div className="font-mono text-[9px] text-gray-400 dark:text-gray-500">
                     STATUS // INTEGRATED DEPLOYMENT
                   </div>
 
@@ -493,11 +493,11 @@ export default function ProjectList() {
                       target="_blank"
                       rel="noopener noreferrer"
                       onClick={(e) => !isSelected && e.preventDefault()} // prevent redirection when sliding side cards
-                      className="group/btn inline-flex items-center justify-center gap-2 bg-white text-black px-4 py-2 rounded-xl text-xs font-mono tracking-wider uppercase border border-gray-200 hover:border-black transition-all duration-350 cursor-pointer shadow-sm hover:shadow-black/5 text-center"
+                      className="group/btn inline-flex items-center justify-center gap-2 bg-white dark:bg-neutral-900 text-black dark:text-white px-4 py-2 rounded-xl text-xs font-mono tracking-wider uppercase border border-gray-200 dark:border-neutral-800 hover:border-black dark:hover:border-white transition-all duration-350 cursor-pointer shadow-sm hover:shadow-black/5 dark:hover:shadow-white/5 text-center"
                     >
                       <Github className="w-3.5 h-3.5" />
                       <span>View source</span>
-                      <ExternalLink className="w-3 h-3 text-black/50" />
+                      <ExternalLink className="w-3 h-3 text-black/50 dark:text-white/50" />
                     </a>
 
                     {/* Live Demo Button (only if demoUrl exists) */}
@@ -507,10 +507,10 @@ export default function ProjectList() {
                         target="_blank"
                         rel="noopener noreferrer"
                         onClick={(e) => !isSelected && e.preventDefault()}
-                        className="group/btn inline-flex items-center justify-center gap-2 bg-black text-white px-4 py-2 rounded-xl text-xs font-mono tracking-wider uppercase border border-black hover:bg-neutral-900 transition-all duration-350 cursor-pointer shadow hover:shadow-black/10 text-center"
+                        className="group/btn inline-flex items-center justify-center gap-2 bg-black dark:bg-white text-white dark:text-black px-4 py-2 rounded-xl text-xs font-mono tracking-wider uppercase border border-black dark:border-white hover:bg-neutral-900 dark:hover:bg-neutral-100 transition-all duration-350 cursor-pointer shadow hover:shadow-black/10 text-center"
                       >
                         <span>Live demo</span>
-                        <ExternalLink className="w-3 h-3 text-white/75" />
+                        <ExternalLink className="w-3 h-3 text-white/75 dark:text-black/75" />
                       </a>
                     )}
                   </div>
@@ -523,17 +523,17 @@ export default function ProjectList() {
 
       {/* Cyclic Bullet Indicators at footer */}
       <div className="flex items-center justify-center gap-2 mt-4 sm:hidden pb-4">
-        <button onClick={prevProject} className="p-2 border border-gray-200 rounded-lg text-xs bg-white">←</button>
+        <button onClick={prevProject} className="p-2 border border-gray-200 dark:border-neutral-800 rounded-lg text-xs bg-white dark:bg-neutral-900 dark:text-white">←</button>
         {FEATURED_PROJECTS.map((_, idx) => (
           <button
             key={idx}
             onClick={() => setActiveProjectIdx(idx)}
             className={`w-2.5 h-2.5 rounded-full transition-all ${
-              activeProjectIdx === idx ? "bg-black scale-110" : "bg-gray-200"
+              activeProjectIdx === idx ? "bg-black dark:bg-white scale-110" : "bg-gray-200 dark:bg-neutral-800"
             }`}
           />
         ))}
-        <button onClick={nextProject} className="p-2 border border-gray-200 rounded-lg text-xs bg-white">→</button>
+        <button onClick={nextProject} className="p-2 border border-gray-200 dark:border-neutral-800 rounded-lg text-xs bg-white dark:bg-neutral-900 dark:text-white">→</button>
       </div>
     </div>
   );

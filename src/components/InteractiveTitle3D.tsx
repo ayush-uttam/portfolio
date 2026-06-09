@@ -1,7 +1,11 @@
 import { useEffect, useRef, useState } from "react";
 import * as THREE from "three";
 
-export default function InteractiveTitle3D() {
+interface InteractiveTitle3DProps {
+  isDarkMode?: boolean;
+}
+
+export default function InteractiveTitle3D({ isDarkMode = false }: InteractiveTitle3DProps) {
   const containerRef = useRef<HTMLDivElement>(null);
   const canvasRef = useRef<HTMLCanvasElement>(null);
   const targetMouse = useRef({ x: 0, y: 0 });
@@ -79,10 +83,13 @@ export default function InteractiveTitle3D() {
       return texture;
     };
 
+    const textColor = isDarkMode ? "#ffffff" : "#000000";
+    const uttamColor = isDarkMode ? "rgba(255, 255, 255, 0.85)" : "rgba(0, 0, 0, 0.85)";
+
     // Initialize textures
-    let ayushEnglishTexture = makeTextTexture("AYUSH", "900 220px 'Inter', sans-serif", "#000000");
-    let ayushHindiTexture = makeTextTexture("आयुष", "900 220px 'Inter', sans-serif", "#000000");
-    let uttamTexture = makeTextTexture("Uttam", "italic 300 200px 'Playfair Display', serif", "rgba(0, 0, 0, 0.85)");
+    let ayushEnglishTexture = makeTextTexture("AYUSH", "900 220px 'Inter', sans-serif", textColor);
+    let ayushHindiTexture = makeTextTexture("आयुष", "900 220px 'Inter', sans-serif", textColor);
+    let uttamTexture = makeTextTexture("Uttam", "italic 300 200px 'Playfair Display', serif", uttamColor);
 
     // Build planes for stereoscopic layered 3D
     // Width 9.5, height 2.4 units in 3D space
@@ -93,8 +100,11 @@ export default function InteractiveTitle3D() {
       transparent: true,
       opacity: 1.0,
       side: THREE.DoubleSide,
-      specular: 0x333333,
-      shininess: 40,
+      specular: isDarkMode ? 0xffffff : 0x333333,
+      shininess: isDarkMode ? 80 : 40,
+      emissive: isDarkMode ? 0xffffff : 0x000000,
+      emissiveIntensity: isDarkMode ? 0.65 : 0.0,
+      emissiveMap: ayushEnglishTexture,
     });
 
     const uttamMat = new THREE.MeshPhongMaterial({
@@ -102,8 +112,11 @@ export default function InteractiveTitle3D() {
       transparent: true,
       opacity: 0.9,
       side: THREE.DoubleSide,
-      specular: 0x222222,
-      shininess: 30,
+      specular: isDarkMode ? 0xffffff : 0x222222,
+      shininess: isDarkMode ? 60 : 30,
+      emissive: isDarkMode ? 0xffffff : 0x000000,
+      emissiveIntensity: isDarkMode ? 0.55 : 0.0,
+      emissiveMap: uttamTexture,
     });
 
     const ayushPlane = new THREE.Mesh(planeGeo, ayushMat);
@@ -311,6 +324,7 @@ export default function InteractiveTitle3D() {
             // Switch texture
             isEnglish = !isEnglish;
             ayushMat.map = isEnglish ? ayushEnglishTexture : ayushHindiTexture;
+            ayushMat.emissiveMap = isEnglish ? ayushEnglishTexture : ayushHindiTexture;
             ayushMat.needsUpdate = true;
           }
         } else if (fadePhase === "in") {
@@ -383,13 +397,18 @@ export default function InteractiveTitle3D() {
       ayushHindiTexture.dispose();
       uttamTexture.dispose();
 
-      ayushEnglishTexture = makeTextTexture("AYUSH", "900 220px 'Inter', sans-serif", "#000000");
-      ayushHindiTexture = makeTextTexture("आयुष", "900 220px 'Inter', sans-serif", "#000000");
-      uttamTexture = makeTextTexture("Uttam", "italic 300 200px 'Playfair Display', serif", "rgba(0, 0, 0, 0.85)");
+      const textCol = isDarkMode ? "#ffffff" : "#000000";
+      const uttCol = isDarkMode ? "rgba(255, 255, 255, 0.85)" : "rgba(0, 0, 0, 0.85)";
+
+      ayushEnglishTexture = makeTextTexture("AYUSH", "900 220px 'Inter', sans-serif", textCol);
+      ayushHindiTexture = makeTextTexture("आयुष", "900 220px 'Inter', sans-serif", textCol);
+      uttamTexture = makeTextTexture("Uttam", "italic 300 200px 'Playfair Display', serif", uttCol);
 
       ayushMat.map = isEnglish ? ayushEnglishTexture : ayushHindiTexture;
+      ayushMat.emissiveMap = isEnglish ? ayushEnglishTexture : ayushHindiTexture;
       ayushMat.needsUpdate = true;
       uttamMat.map = uttamTexture;
+      uttamMat.emissiveMap = uttamTexture;
       uttamMat.needsUpdate = true;
     };
 
@@ -413,7 +432,7 @@ export default function InteractiveTitle3D() {
       sparkMat.dispose();
       renderer.dispose();
     };
-  }, [fontsReady]);
+  }, [fontsReady, isDarkMode]);
 
   return (
     <div
@@ -439,12 +458,12 @@ export default function InteractiveTitle3D() {
             id="wavyPath"
             d="M -100,200 C 200,380 400,20 700,200 C 1000,380 1200,20 1500,200 C 1800,380 2000,20 2300,200"
             fill="none"
-            stroke="rgba(0, 0, 0, 0.08)"
+            stroke={isDarkMode ? "rgba(255, 255, 255, 0.08)" : "rgba(0, 0, 0, 0.08)"}
             strokeWidth="1.5"
             strokeDasharray="4 4"
           />
           <text
-            className="font-mono text-[11px] sm:text-xs font-semibold uppercase tracking-[0.25em] fill-slate-500/80"
+            className="font-mono text-[11px] sm:text-xs font-semibold uppercase tracking-[0.25em] fill-slate-500/80 dark:fill-slate-400/80"
             dy="-6"
           >
             <textPath href="#wavyPath" startOffset="0%">
