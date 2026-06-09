@@ -1,7 +1,35 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import { Send, CheckCircle, Github, Linkedin, ArrowRight, MessageSquare } from "lucide-react";
 
 export default function ContactSection() {
+  const containerRef = useRef<HTMLDivElement>(null);
+  const [diagonal, setDiagonal] = useState({ length: 0, angle: 0 });
+
+  useEffect(() => {
+    const container = containerRef.current;
+    if (!container) return;
+
+    const updateDiagonal = () => {
+      const rect = container.getBoundingClientRect();
+      const width = rect.width;
+      const height = rect.height;
+      const length = Math.sqrt(width * width + height * height);
+      const angle = Math.atan2(height, width) * (180 / Math.PI);
+      setDiagonal({ length, angle });
+    };
+
+    updateDiagonal();
+
+    const resizeObserver = new ResizeObserver(() => {
+      updateDiagonal();
+    });
+    resizeObserver.observe(container);
+
+    return () => {
+      resizeObserver.disconnect();
+    };
+  }, []);
+
   const [formData, setFormData] = useState({
     name: "",
     email: "",
@@ -110,8 +138,32 @@ export default function ContactSection() {
       </div>
 
       {/* Slick form: 7 Cols */}
-      <div className="lg:col-span-7 p-6 md:p-8 rounded-xl bg-white/70 dark:bg-neutral-900/40 border border-gray-200 dark:border-neutral-850 backdrop-blur-md relative overflow-hidden shadow-sm hover:border-black dark:hover:border-white transition-all duration-300">
+      <div 
+        ref={containerRef}
+        className="lg:col-span-7 p-6 md:p-8 rounded-xl bg-white/70 dark:bg-neutral-900/40 border border-gray-200 dark:border-neutral-850 backdrop-blur-md relative overflow-hidden shadow-sm hover:border-black dark:hover:border-white transition-all duration-300"
+      >
         <div className="absolute top-0 left-0 right-0 h-[1px] bg-gray-200 dark:bg-neutral-850" />
+
+        {/* Hazard Construction Strip */}
+        {diagonal.length > 0 && (
+          <div className="absolute inset-0 overflow-hidden pointer-events-none z-30">
+            <div 
+              className="absolute py-3.5 flex items-center justify-center border-y-4 border-black/40 dark:border-white/20 shadow-2xl animate-pulse pointer-events-none"
+              style={{
+                width: `${diagonal.length + 200}px`,
+                height: "56px",
+                left: "50%",
+                top: "50%",
+                transform: `translate(-50%, -50%) rotate(${diagonal.angle}deg)`,
+                background: "repeating-linear-gradient(-45deg, #eab308, #eab308 12px, #171717 12px, #171717 24px)"
+              }}
+            >
+              <span className="bg-neutral-900 dark:bg-black text-yellow-400 dark:text-yellow-300 px-4 py-1 font-mono text-xs sm:text-sm font-black tracking-[0.3em] rounded border border-yellow-500/40 shadow-inner pointer-events-none">
+                UNDER CONSTRUCTION
+              </span>
+            </div>
+          </div>
+        )}
 
         <div className="flex items-center gap-3 mb-6">
           <MessageSquare className="w-5 h-5 text-black dark:text-white" />
@@ -178,29 +230,10 @@ export default function ContactSection() {
           <div>
             <button
               type="submit"
-              disabled={status === "SENDING" || status === "SUCCESS"}
-              className={`w-full flex items-center justify-center gap-2 py-3.5 px-6 rounded-lg text-xs font-mono tracking-[0.2em] uppercase transition-all duration-300 font-bold cursor-pointer border ${status === "SUCCESS"
-                ? "bg-emerald-50 dark:bg-emerald-950/30 border-emerald-500 dark:border-emerald-500/50 text-emerald-800 dark:text-emerald-300"
-                : status === "SENDING"
-                  ? "bg-gray-100 dark:bg-neutral-800 border-gray-300 dark:border-neutral-700 text-gray-500 dark:text-gray-400 cursor-wait animate-pulse"
-                  : "bg-black dark:bg-white hover:bg-neutral-900 dark:hover:bg-neutral-100 border-transparent text-white dark:text-black hover:shadow-md hover:shadow-black/5"
-                }`}
+              disabled={true}
+              className="w-full flex items-center justify-center gap-2 py-3.5 px-6 rounded-lg text-xs font-mono tracking-[0.2em] uppercase transition-all duration-300 font-bold border border-gray-300 dark:border-neutral-850 bg-gray-100 dark:bg-neutral-900/40 text-gray-400 dark:text-neutral-500 cursor-not-allowed"
             >
-              {status === "IDLE" && (
-                <>
-                  TRANSMIT SIGNAL <Send className="w-4 h-4 ml-1" />
-                </>
-              )}
-              {status === "SENDING" && (
-                <>
-                  TRANSMITTING ENVELOPE... <ArrowRight className="w-4 h-4 animate-ping" />
-                </>
-              )}
-              {status === "SUCCESS" && (
-                <>
-                  SIGNAL DELIVERED <CheckCircle className="w-4 h-4 ml-1 text-emerald-600 dark:text-emerald-400" />
-                </>
-              )}
+              TRANSMIT SIGNAL <Send className="w-4 h-4 ml-1 opacity-50" />
             </button>
           </div>
         </form>
