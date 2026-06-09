@@ -265,26 +265,34 @@ export default function App() {
               <InteractiveTitle3D isDarkMode={isDarkMode} />
             </div>
 
-            {/* Sub-description subtitle */}
-            <div className="max-w-3xl mx-auto space-y-6">
-              <p className="font-sans text-base md:text-lg text-gray-650 dark:text-gray-300 leading-relaxed font-light">
-                Information Technology undergraduate with strong skills in C++, JavaScript, React.js, Node.js, and AI-powered application development. Experienced in building full-stack and IoT solutions, with a proven track record of delivering innovative projects and winning hackathon competitions.
-              </p>
+            {/* Content Group (Shifted down by 30px) */}
+            <div className="transform translate-y-[30px] space-y-8 md:space-y-12">
+              {/* Sub-header text in single line */}
+              <div className="font-serif italic font-light text-sm sm:text-base md:text-lg lg:text-xl xl:text-2xl text-gray-800 dark:text-gray-200 tracking-wider -mt-12 sm:-mt-20 md:-mt-28 lg:-mt-32 xl:-mt-36 relative z-30">
+                Software Engineer &bull; Competitive Programmer &bull; Full-Stack &amp; AI Developer
+              </div>
 
-              {/* Action Callouts */}
-              <div className="flex flex-wrap items-center justify-center gap-4 pt-2">
-                <button
-                  onClick={() => scrollToRef(projectsRef)}
-                  className="px-6 py-2.5 rounded-lg bg-black hover:bg-neutral-900 dark:bg-white dark:hover:bg-neutral-100 dark:text-black font-mono text-xs tracking-wider uppercase font-bold text-white transition-all hover:shadow-lg hover:shadow-black/5 dark:hover:shadow-white/5 active:translate-y-0.5 cursor-pointer"
-                >
-                  VIEW REPOSITORIES
-                </button>
-                <button
-                  onClick={() => scrollToRef(contactRef)}
-                  className="px-6 py-2.5 rounded-lg border border-gray-200 dark:border-neutral-850 hover:border-black dark:hover:border-white bg-white/80 dark:bg-neutral-900/80 hover:bg-gray-50 dark:hover:bg-neutral-850 font-mono text-xs tracking-wider uppercase font-bold text-black dark:text-white transition-all cursor-pointer"
-                >
-                  TRANSMIT SIGNAL
-                </button>
+              {/* Sub-description subtitle */}
+              <div className="max-w-3xl mx-auto space-y-6">
+                <p className="font-sans text-base md:text-lg text-gray-650 dark:text-gray-300 leading-relaxed font-light">
+                  Information Technology undergraduate with strong skills in C++, JavaScript, React.js, Node.js, and AI-powered application development. Experienced in building full-stack and IoT solutions, with a proven track record of delivering innovative projects and winning hackathon competitions.
+                </p>
+
+                {/* Action Callouts */}
+                <div className="flex flex-wrap items-center justify-center gap-4 pt-2">
+                  <button
+                    onClick={() => scrollToRef(projectsRef)}
+                    className="px-6 py-2.5 rounded-lg bg-black hover:bg-neutral-900 dark:bg-white dark:hover:bg-neutral-100 dark:text-black font-mono text-xs tracking-wider uppercase font-bold text-white transition-all hover:shadow-lg hover:shadow-black/5 dark:hover:shadow-white/5 active:translate-y-0.5 cursor-pointer"
+                  >
+                    VIEW REPOSITORIES
+                  </button>
+                  <button
+                    onClick={() => scrollToRef(contactRef)}
+                    className="px-6 py-2.5 rounded-lg border border-gray-200 dark:border-neutral-850 hover:border-black dark:hover:border-white bg-white/80 dark:bg-neutral-900/80 hover:bg-gray-50 dark:hover:bg-neutral-850 font-mono text-xs tracking-wider uppercase font-bold text-black dark:text-white transition-all cursor-pointer"
+                  >
+                    TRANSMIT SIGNAL
+                  </button>
+                </div>
               </div>
             </div>
           </div>
