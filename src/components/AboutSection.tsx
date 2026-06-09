@@ -23,10 +23,10 @@ const SKILLS: SkillCategory[] = [
 const EXPERIENCE: ExperienceItem[] = [
   {
     id: "exp-1",
-    role: "Started B.Tech CSE",
+    role: "Started B.Tech IT",
     company: "Information Technology",
     period: "2024",
-    description: "• Started B.Tech in Computer Science Engineering (CSE)\n• Initiated exploration of system programming and basic computing theory\n• Engaged in campus dev circles and student developer chapters"
+    description: "• Started B.Tech in Information Technology(IT)\n• Initiated exploration of system programming and basic computing theory\n• Engaged in campus dev circles and student developer chapters"
   },
   {
     id: "exp-2",
