@@ -70,9 +70,8 @@ export default function CustomCursor({ isDarkMode = false }: CustomCursorProps) 
             fill="none"
             stroke={isDarkMode ? "white" : "black"}
             strokeWidth="1.5"
-            className={`transition-all duration-150 ${
-              isClicking ? "scale-75 rotate-45 stroke-rose-500" : "scale-100 rotate-0"
-            }`}
+            className={`transition-all duration-150 ${isClicking ? "scale-75 rotate-45 stroke-rose-500" : "scale-100 rotate-0"
+              }`}
           >
             <line x1="12" y1="2" x2="12" y2="22" />
             <line x1="2" y1="12" x2="22" y2="12" />
@@ -103,3 +102,4 @@ export default function CustomCursor({ isDarkMode = false }: CustomCursorProps) 
     </>
   );
 }
+
